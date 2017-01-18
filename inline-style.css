@@ -1,0 +1,64 @@
+/*
+This stylesheet adds in-line styling to WP theme
+The data-attribute [data-inline] is used for the content of each commentary.
+The data-attribute [data-EPR] is used for the name of each reviewer.
+*/
+
+
+/*creates the in-line class to format spans used for highlighted text*/
+.inline{
+  border-bottom: 2px dotted black;
+}
+
+span[data-inline] {
+  position: relative;
+}
+
+span[data-inline]::before,
+span[data-inline]::after {
+  position: absolute;
+  display: none;
+  opacity: 1;
+  z-index: 100;
+}
+
+/*formatting for commentary text of in-line*/
+span[data-inline]::after {
+  content: attr(data-inline);
+  border: #066355 5px solid;
+  border-radius: 8px;
+  padding: 30px 10px 10px 10px;
+  z-index: 100;
+  background: #088e7b;
+  color: #fff;
+  left: 0px;
+  margin: 15px;
+  margin-top: 35px;
+  width: 250px;
+  position: absolute;
+  top: 10px;
+  text-decoration: none;
+}
+
+/*formatting for reviewer name for in-line*/
+span[data-inline]::before {
+  content: attr(data-EPR);
+  text-align: center;
+  color: #fff;
+  border: #066355 5px solid;
+  border-radius: 8px;
+  padding: 0px 0px 0px 0px;
+  z-index: 1000;
+  background: #066355;
+  color: #fff;
+  left: 0px;
+  margin: 15px 15px 15px 15px;
+  width: 270px;
+  position: absolute;
+  text-decoration: none;
+}
+
+span[data-inline]:hover::before,
+span[data-inline]:hover::after {
+  display: block;
+}
