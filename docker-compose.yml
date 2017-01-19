@@ -1,0 +1,26 @@
+version: '2'
+services:
+    wordpress:
+        image: visiblevc/wordpress:0.13.0-php7.0
+        ports:
+            - 8080:80
+            - 443:443
+        volumes:
+            - ./dist/inline_plugin:/app/wp-content/plugins/inline_plugin
+        environment:
+            DB_HOST: db
+            DB_NAME: wordpress
+            DB_PASS: root
+            PLUGINS: >-
+                [local]inline_plugin
+            WP_DEBUG: 'true'
+            WP_DEBUG_LOG: 'true'
+            WP_DEBUG_DISPLAY: 'true'
+    db:
+        image: mariadb:10
+        volumes:
+            - data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+volumes:
+    data:

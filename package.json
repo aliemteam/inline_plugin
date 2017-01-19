@@ -1,0 +1,15 @@
+{
+  "name": "inline_plugin",
+  "version": "0.2.0",
+  "main": "index.js",
+  "repository": "https://github.com/aliemteam/inline_plugin.git",
+  "author": "Scott Kobner <scottkobner@gmail.com>",
+  "license": "gpl-3.0",
+  "scripts": {
+    "start": "./node_modules/.bin/gulp"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "gulpjs/gulp#4.0"
+  }
+}
